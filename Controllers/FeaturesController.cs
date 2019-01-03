@@ -9,22 +9,22 @@ using vega2.Persistence;
 
 namespace vega2.Controllers
 {
-    public class MakesController : Controller
+    public class FeaturesController : Controller
     {
         private readonly VegaDbContext context;
         private readonly IMapper mapper;
-        public MakesController(VegaDbContext context, IMapper mapper)
+        public FeaturesController(VegaDbContext context, IMapper mapper)
         {
             this.mapper = mapper;
             this.context = context;
         }
 
-        [HttpGet("/api/makes")]
-        public async Task<IEnumerable<MakeResource>> GetMakes()
+        [HttpGet("/api/features")]
+        public async Task<IEnumerable<KeyValuePairResource>> GetFeatures()
         {
-            var makes = await context.Makes.Include(m => m.Models).ToListAsync();
+            var features = await context.Features.ToListAsync();
 
-            return mapper.Map<List<Make>, List<MakeResource>>(makes);
+            return mapper.Map<List<Feature>, List<KeyValuePairResource>>(features);
         }
     }
 }

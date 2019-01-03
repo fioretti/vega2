@@ -6,7 +6,7 @@ namespace vega2.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-  migrationBuilder.Sql("INSERT INTO Makes (Name) VALUES ('Make1')");
+            migrationBuilder.Sql("INSERT INTO Makes (Name) VALUES ('Make1')");
             migrationBuilder.Sql("INSERT INTO Makes (Name) VALUES ('Make2')");
             migrationBuilder.Sql("INSERT INTO Makes (Name) VALUES ('Make3')");
 
